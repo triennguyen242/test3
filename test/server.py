@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Port Render hoặc Fly.io cung cấp
+# Railway/Fly.io cung cấp port động
 port = int(os.environ.get("PORT", 10000))
 
 # Đường dẫn tới model
@@ -16,4 +16,5 @@ def predict():
     return jsonify({"result": "anemia", "confidence": 0.95})
 
 if __name__ == "__main__":
+    # host="0.0.0.0" để server public truy cập được
     app.run(host="0.0.0.0", port=port)
